@@ -1,49 +1,44 @@
 import requests
 import base64
-import json
 import re
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, unquote
 
 # لینک سابسکرایب شما
 SUB_URL = "https://raw.githubusercontent.com/pooriaredorg/pooriaredorg/refs/heads/main/configs/proxy_configs.txt"
-OUTPUT_FILE = 'sub_config.json'
+
+# نام فایل خروجی (فرمت txt برای سابسکرایب استاندارد بهتر است)
+OUTPUT_FILE = 'sub_config.txt'
 
 def decode_base64(data):
-    """تلاش برای دیکد کردن Base64، اگر نشد متن اصلی را برمی‌گرداند"""
+    """دیکد کردن محتوای اولیه اگر بیس ۶۴ باشد"""
     data = data.strip()
     try:
         missing_padding = len(data) % 4
         if missing_padding:
             data += '=' * (4 - missing_padding)
         return base64.urlsafe_b64decode(data).decode('utf-8')
-    except Exception:
-        # اگر خطا داد یعنی متن احتمالا Base64 نیست و لینک‌ها مستقیم نوشته شده‌اند
+    except:
         return data
 
-def parse_vmess(vmess_url):
-    """استخراج اطلاعات از لینک vmess"""
+def clean_vmess(link):
+    """اصلاح نام در لینک‌های vmess"""
     try:
-        b64_part = vmess_url.replace("vmess://", "")
-        json_str = decode_base64(b64_part)
-        return json.loads(json_str)
-    except Exception:
+        # لینک vmess معمولا خودش یک json بیس ۶۴ است
+        # ما اینجا فقط خود لینک را برمی‌گردانیم چون vmess استاندارد است
+        # اما اگر بخواهیم نام را عوض کنیم باید دیکد و انکد شود که پیچیده است
+        # پس خود لینک را سالم برمی‌گردانیم
+        return link
+    except:
         return None
 
-def parse_vless_trojan(url, protocol):
-    """استخراج اطلاعات از لینک vless یا trojan"""
+def clean_vless_trojan(link):
+    """اصلاح نام (Remark) در لینک‌های vless و trojan"""
     try:
-        parsed = urlparse(url)
-        params = parse_qs(parsed.query)
-        return {
-            "protocol": protocol,
-            "uuid": parsed.username,
-            "address": parsed.hostname,
-            "port": parsed.port,
-            "name": parsed.fragment if parsed.fragment else "No Name",
-            "params": {k: v[0] for k, v in params.items()} # ساده‌سازی پارامترها
-        }
-    except Exception:
-        return None
+        # دیکد کردن کاراکترهای درصد دار (%F0...) به ایموجی و متن
+        decoded_link = unquote(link) 
+        return decoded_link
+    except:
+        return link
 
 def main():
     print(f"Fetching from: {SUB_URL}")
@@ -51,42 +46,40 @@ def main():
         response = requests.get(SUB_URL, timeout=30)
         response.raise_for_status()
         
-        # محتوا را می‌گیریم
         content = response.text.strip()
-        
-        # بررسی می‌کنیم آیا کل فایل کد شده است یا خیر
         decoded_content = decode_base64(content)
         
-        # خط به خط جدا می‌کنیم
         links = decoded_content.splitlines()
-        
-        json_output = []
+        cleaned_links = []
         
         for link in links:
             link = link.strip()
             if not link: continue
             
+            # پردازش لینک‌ها برای اصلاح نام‌های بهم ریخته
             if link.startswith("vmess://"):
-                data = parse_vmess(link)
-                if data: json_output.append(data)
-                
-            elif link.startswith("vless://"):
-                data = parse_vless_trojan(link, "vless")
-                if data: json_output.append(data)
-                
-            elif link.startswith("trojan://"):
-                data = parse_vless_trojan(link, "trojan")
-                if data: json_output.append(data)
-                
-            elif link.startswith("ss://"):
-                # برای شدوساکس فعلا خود لینک را نگه می‌داریم یا می‌توان پارسر اضافه کرد
-                json_output.append({"protocol": "shadowsocks", "link": link})
+                cleaned_links.append(link) # Vmess معمولا نیازی به unquote ندارد
+            elif link.startswith("vless://") or link.startswith("trojan://") or link.startswith("ss://"):
+                cleaned_links.append(clean_vless_trojan(link))
+            else:
+                pass # خطوط نامعتبر را نادیده می‌گیریم
 
-        # ذخیره فایل نهایی
+        if not cleaned_links:
+            print("No valid links found!")
+            return
+
+        # اتصال همه لینک‌ها با خط جدید
+        final_string = "\n".join(cleaned_links)
+        
+        # تبدیل کل محتوا به Base64 (استاندارد سابسکرایب)
+        final_base64 = base64.b64encode(final_string.encode('utf-8')).decode('utf-8')
+
+        # ذخیره در فایل
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            json.dump(json_output, f, indent=4, ensure_ascii=False)
+            f.write(final_base64)
             
-        print(f"Done! Converted {len(json_output)} configs to {OUTPUT_FILE}")
+        print(f"Successfully created subscription compatible with V2Box/Hiddify.")
+        print(f"Saved to {OUTPUT_FILE}")
 
     except Exception as e:
         print(f"Error: {e}")

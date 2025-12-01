@@ -1,0 +1,245 @@
+[
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "9acdj4uk.tree-top.cc",
+        "port": 443,
+        "name": "🇳🇱Amsterdam-pooria",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "www.apple.com",
+            "pbk": "fPSR5GZpxhOV6Rh7VzMtS4AeRN7ipyNX4waG9JzJzxQ",
+            "sid": "21181028b56c8702"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "d.nl.cdn.maviks.eu",
+        "port": 443,
+        "name": "🇳🇱Amsterdam – Reserve-pooria1",
+        "params": {
+            "type": "httpupgrade",
+            "host": "cdn.maviks.eu",
+            "path": "/MaGLM25tSikPTFr75Q0Yri?ed=2560",
+            "security": "tls",
+            "sni": "cdn.maviks.eu",
+            "fp": "chrome",
+            "allowInsecure": "0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "nodes.maviks.eu",
+        "port": 443,
+        "name": "🇩🇪Germany-pooria1",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "www.microsoft.com",
+            "pbk": "lyLhdojpACv6B3tHViJvPjNGATedXYRMnpAt4n4Siyo",
+            "sid": "f203719d3ff9a5f5"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "ru.maviks.eu",
+        "port": 443,
+        "name": "🇷🇺Russia-pooria",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "maviks.eu",
+            "pbk": "cGzNRbN_zruI3CVTDukB2nOqWWEj7kgkay24f2fdLmQ",
+            "sid": "0f917152a871e9c0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "ru.maviks.eu",
+        "port": 443,
+        "name": "🇷🇺Russia-pooria1",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "maviks.ru",
+            "pbk": "cGzNRbN_zruI3CVTDukB2nOqWWEj7kgkay24f2fdLmQ",
+            "sid": "0f917152a871e9c0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "دیگه آخراشه 🧑🏻‍💻🥷🏻",
+        "params": {
+            "type": "ws",
+            "host": "pooriared.pooriared1.workers.dev",
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "tls",
+            "sni": "pooriared.pooriared1.workers.dev",
+            "alpn": "http/1.1,h2",
+            "fp": "chrome",
+            "allowInsecure": "1"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "POORIA🥷🏻test443",
+        "params": {
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "tls",
+            "encryption": "none",
+            "alpn": "h2,http/1.1",
+            "host": "pOOrIam.PoORia8.WOrKeRs.dEV",
+            "fp": "chrome",
+            "allowinsecure": "1",
+            "type": "ws",
+            "sni": "pOOrIam.PoORia8.WOrKeRs.dEV"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "دیگه آخراشه 🧑🏻‍💻🥷🏻",
+        "params": {
+            "type": "ws",
+            "host": "pooriared.pooriared1.workers.dev",
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "none"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "POORIA🥷🏻test80",
+        "params": {
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "none",
+            "encryption": "none",
+            "alpn": "h2,http/1.1",
+            "host": "pOOrIam.PoORia8.WOrKeRs.dEV",
+            "fp": "chrome",
+            "allowinsecure": "1",
+            "type": "ws",
+            "sni": "pOOrIam.PoORia8.WOrKeRs.dEV"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "🔥80📌POORIA1",
+        "params": {
+            "type": "ws",
+            "host": "pooria300.sajaj26960.workers.dev",
+            "path": "/pYlvrOh1WyvqzKtg?ed=2560",
+            "security": "none"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "b438158e-060b-4f64-8f7b-3729db9c5ec8",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "POORIA3",
+        "params": {
+            "type": "ws",
+            "host": "pooriaredorg.pooriared.ir",
+            "path": "/eyJqdW5rIjoiRDdnZVl1NzVJUk1PIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560",
+            "security": "tls",
+            "sni": "PooRIaREdoRg.POoRIAReD.Ir",
+            "alpn": "http/1.1",
+            "fp": "chrome",
+            "allowInsecure": "0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "b438158e-060b-4f64-8f7b-3729db9c5ec8",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "POORIA1",
+        "params": {
+            "type": "ws",
+            "host": "pooriaredorg.pooriared.ir",
+            "path": "/eyJqdW5rIjoicWN2NGpjSklVSVdBNSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560",
+            "security": "none"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "beb4db65-f595-46b6-8eb9-e0a205472777",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "POORIA+➍🥷🏻",
+        "params": {
+            "path": "/eyJqdW5rIjoicTJTVDVxSXBzdDdCVWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "tls",
+            "encryption": "none",
+            "host": "pooria.pooriared-db4.workers.dev",
+            "fp": "chrome",
+            "allowinsecure": "0",
+            "type": "ws",
+            "sni": "pooria.pooriared-db4.workers.dev"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "beb4db65-f595-46b6-8eb9-e0a205472777",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "POORIA➌+🥷🏻",
+        "params": {
+            "path": "/eyJqdW5rIjoicTJTVDVxSXBzdDdCVWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "none",
+            "encryption": "none",
+            "host": "pooria.pooriared-db4.workers.dev",
+            "fp": "chrome",
+            "allowinsecure": "0",
+            "type": "ws",
+            "sni": "pooria.pooriared-db4.workers.dev"
+        }
+    },
+    {
+        "protocol": "trojan",
+        "uuid": "pooria",
+        "address": "pooriaredorg.pooriared.ir",
+        "port": 443,
+        "name": "POORIA2===",
+        "params": {
+            "type": "ws",
+            "host": "pooriaredorg.pooriared.ir",
+            "path": "/eyJqdW5rIjoiT0dha2lncEt0WE1FIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560",
+            "security": "tls",
+            "sni": "pOoRIArEDOrG.pOorIAred.ir",
+            "fp": "chrome",
+            "allowInsecure": "0"
+        }
+    }
+]

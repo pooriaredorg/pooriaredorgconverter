@@ -1,13 +1,16 @@
 import requests
 import base64
-from urllib.parse import unquote
+import json
+from urllib.parse import urlparse, parse_qs, unquote
 
-# لینک سابسکرایب شما
-SUB_URL = "https://raw.githubusercontent.com/pooriaredorg/pooriaredorg/refs/heads/main/configs/proxy_configs.txt"
-OUTPUT_FILE = 'sub_config.json' # نام فایل خروجی طبق درخواست شما
+# لینک سابسکرایب خام حاوی لینک‌های vmess/vless/trojan
+SOURCE_SUB_URL = "https://raw.githubusercontent.com/pooriaredorg/pooriaredorg/refs/heads/main/configs/proxy_configs.txt"
+
+# نام فایل خروجی (باید با لینک نهایی شما مطابقت داشته باشد)
+OUTPUT_FILE = 'singbox_configs.json' 
 
 def decode_base64_safe(data):
-    """دیکد کردن محتوای اولیه با مدیریت خطا"""
+    """دیکد کردن محتوای Base64"""
     data = data.strip()
     try:
         missing_padding = len(data) % 4
@@ -17,54 +20,113 @@ def decode_base64_safe(data):
     except:
         return data
 
-def clean_links(link):
-    """اصلاح نام (Remark) با دیکد کردن کاراکترهای درصد دار و حفظ ساختار لینک"""
+def map_vless_to_xray(url):
+    """تبدیل لینک VLESS به ساختار Outbound هسته Xray"""
     try:
-        # unquote کردن برای تبدیل %F0%9F... به ایموجی و متن خوانا
-        return unquote(link)
-    except:
-        return link
+        parsed = urlparse(unquote(url))
+        params = parse_qs(parsed.query)
+        
+        # اصلاح نام (tag)
+        tag_name = unquote(parsed.fragment) if parsed.fragment else f"VLESS-{parsed.hostname}"
+        
+        # --- تنظیمات Stream (شبکه و امنیت) ---
+        network_type = params.get('type', ['tcp'])[0]
+        security_type = params.get('security', [''])[0]
+        
+        stream_settings = {"network": network_type}
+        
+        # تنظیمات TLS
+        if security_type in ('tls', 'xtls', 'reality'):
+            stream_settings["security"] = "tls"
+            stream_settings["tlsSettings"] = {
+                "serverName": params.get('sni', [parsed.hostname])[0],
+                "allowInsecure": params.get('allowInsecure', ['0'])[0] == '1'
+            }
+
+        # تنظیمات WebSocket
+        if network_type == 'ws':
+            stream_settings["wsSettings"] = {
+                "path": params.get('path', ['/'])[0],
+                "headers": {"Host": params.get('host', [parsed.hostname])[0]}
+            }
+        
+        # --- ساخت Outbound نهایی ---
+        outbound = {
+            "tag": tag_name,
+            "protocol": "vless",
+            "settings": {
+                "vnext": [{
+                    "address": parsed.hostname,
+                    "port": parsed.port,
+                    "users": [{
+                        "id": parsed.username,
+                        "flow": params.get('flow', [''])[0],
+                        "encryption": "none"
+                    }]
+                }]
+            },
+            "streamSettings": stream_settings,
+            "mux": {"enabled": False} 
+        }
+        
+        return outbound
+    except Exception as e:
+        print(f"Error mapping VLESS to Xray: {e}")
+        return None
 
 def main():
-    print(f"Fetching from: {SUB_URL}")
+    print(f"Fetching raw links from: {SOURCE_SUB_URL}")
     try:
-        response = requests.get(SUB_URL, timeout=30)
+        response = requests.get(SOURCE_SUB_URL, timeout=30)
         response.raise_for_status()
         
         content = response.text.strip()
         decoded_content = decode_base64_safe(content)
         
         links = decoded_content.splitlines()
-        cleaned_links = []
+        outbounds = []
         
         for link in links:
             link = link.strip()
             if not link: continue
             
-            # فقط لینک‌های Vmess/Vless/Trojan/SS را تمیز و حفظ می‌کنیم
-            if link.startswith(("vmess://", "vless://", "trojan://", "ss://")):
-                cleaned_links.append(clean_links(link))
-            else:
-                pass 
-
-        if not cleaned_links:
-            print("No valid links found!")
-            return
-
-        # ساخت یک رشته واحد از همه لینک‌ها
-        final_string = "\n".join(cleaned_links)
-        
-        # Base64 کردن کل محتوا (این همان محتوایی است که V2Box می‌خواند)
-        final_base64 = base64.b64encode(final_string.encode('utf-8')).decode('utf-8')
-
-        # ذخیره در فایل JSON (با محتوای Base64)
-        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            f.write(final_base64)
+            # تبدیل پروتکل‌ها
+            if link.startswith("vless://"):
+                data = map_vless_to_xray(link)
+                if data: outbounds.append(data)
+            # شما باید توابع map_vmess_to_xray و map_trojan_to_xray را نیز اضافه کنید
             
-        print(f"Success! Created functional subscription file named {OUTPUT_FILE}.")
+        # --- ساختار کامل Xray JSON (Full Config) ---
+        final_config = {
+            "log": {"loglevel": "warning"},
+            "dns": {
+                "servers": [{"address": "8.8.8.8", "tag": "dns-remote"}]
+            },
+            "inbounds": [
+                {"protocol": "socks", "listen": "127.0.0.1", "port": 10808, "tag": "socks-in"},
+                {"protocol": "http", "listen": "127.0.0.1", "port": 10809, "tag": "http-in"}
+            ],
+            "outbounds": outbounds + [
+                {"protocol": "freedom", "tag": "direct"},
+                {"protocol": "blackhole", "tag": "block"}
+            ],
+            "routing": {
+                "rules": [
+                    {"type": "field", "outboundTag": "block", "domain": ["geosite:category-ads-all"]},
+                    {"type": "field", "outboundTag": "direct", "network": "tcp,udp"}
+                ],
+                "domainStrategy": "AsIs"
+            }
+        }
+        
+        # ذخیره خروجی در فایل JSON
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            json.dump(final_config, f, indent=4, ensure_ascii=False)
+            
+        print(f"Successfully created full Xray JSON file: {len(outbounds)} proxies.")
 
     except Exception as e:
-        print(f"Critical Error: {e}")
+        print(f"Error: {e}")
         exit(1)
 
 if __name__ == "__main__":

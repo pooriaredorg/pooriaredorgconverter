@@ -1,8 +1,8 @@
-name: Hourly Sub JSON Update
+name: Hourly Xray JSON Config Update
 
 on:
   schedule:
-    - cron: '0 * * * *' # اجرا هر ساعت (دقیقه صفر)
+    - cron: '0 * * * *' 
   workflow_dispatch:
 
 jobs:
@@ -28,9 +28,8 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config --global user.name 'Final Sub Fixer'
+          git config --global user.name 'Xray JSON Bot'
           git config --global user.email 'action@github.com'
-          # اضافه کردن فایل JSON
-          git add sub_config.json
-          # بررسی تغییرات و کامیت
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto fix and update JSON sub $(date)" && git push)
+          # کامیت فایل خروجی با نام مورد نظر شما
+          git add singbox_configs.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update Xray Config $(date)" && git push)

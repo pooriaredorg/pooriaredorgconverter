@@ -20,29 +20,17 @@ def decode_base64_safe(data):
     except:
         return data
 
-def parse_vmess(vmess_url):
-    """تبدیل لینک vmess به دیکشنری و دیکد کردن نام (ps)"""
-    try:
-        b64_part = vmess_url.replace("vmess://", "")
-        json_str = decode_base64_safe(b64_part)
-        data = json.loads(json_str)
-        if 'ps' in data:
-            data['ps'] = unquote(data['ps']) # اصلاح نام
-        return data
-    except Exception:
-        return None
-
 def parse_vless_trojan(url, protocol):
-    """استخراج اطلاعات از لینک vless/trojan به فرمت JSON (شبیه تصویر شما)"""
+    """تبدیل لینک VLESS/Trojan به آبجکت JSON با نام دیکد شده"""
     try:
-        # دیکد کردن پارامترهای URL برای خواندن صحیح نام و مقادیر
+        # لینک را دیکد نمی‌کنیم تا پارس کردن صحیح باشد، فقط Fragment را دیکد می‌کنیم.
         parsed = urlparse(url)
         params = parse_qs(parsed.query)
         
-        # اصلاح نام (tag) - این قسمت همان است که درصدها را به حروف تبدیل می‌کند
+        # اصلاح و دیکد کردن نام (Fragment) - این کاراکترهای %F0%9F را به ایموجی/متن تبدیل می‌کند
         tag_name = unquote(parsed.fragment) if parsed.fragment else f"{protocol.upper()}-{parsed.hostname}"
 
-        # ساخت آبجکت JSON
+        # ساخت آبجکت JSON مطابق با ساختار Xray
         proxy_object = {
             "protocol": protocol,
             "uuid": parsed.username if parsed.username else "",
@@ -54,7 +42,7 @@ def parse_vless_trojan(url, protocol):
         
         # افزودن پارامترها
         for key, value in params.items():
-            # اطمینان از دیکد بودن مقادیر
+            # دیکد کردن مقادیر
             proxy_object['params'][key] = unquote(value[0])
             
         return proxy_object
@@ -77,17 +65,16 @@ def main():
             link = link.strip()
             if not link: continue
             
-            if link.startswith("vmess://"):
-                data = parse_vmess(link)
-                if data: json_output.append(data)
-            elif link.startswith(("vless://", "trojan://")):
+            # تبدیل پروتکل‌ها
+            if link.startswith(("vless://", "trojan://")):
                 protocol = link.split(':')[0].replace("://", "")
                 data = parse_vless_trojan(link, protocol)
                 if data: json_output.append(data)
+            # توجه: برای vmess:// نیاز به تابع parse_vmess (بیس‌64 مجزا) دارید که در اینجا به دلیل تمرکز بر VLESS/Trojan حذف شده است.
             
         # --- ذخیره خروجی به صورت آرایه JSON مجزا ---
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            # خروجی نهایی یک آرایه [ {...}, {...}, ... ] است
+            # خروجی نهایی یک آرایه [ {...}, {...}, ... ] است (۱۰ کانفیگ جداگانه)
             json.dump(json_output, f, indent=4, ensure_ascii=False)
             
         print(f"Successfully created JSON array file: {len(json_output)} distinct configs.")

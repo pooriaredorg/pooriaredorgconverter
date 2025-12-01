@@ -6,8 +6,8 @@ from urllib.parse import urlparse, parse_qs, unquote
 # لینک سابسکرایب خام حاوی لینک‌های vmess/vless/trojan
 SOURCE_SUB_URL = "https://raw.githubusercontent.com/pooriaredorg/pooriaredorg/refs/heads/main/configs/proxy_configs.txt"
 
-# نام فایل خروجی (باید با لینک نهایی شما مطابقت داشته باشد)
-OUTPUT_FILE = 'singbox_configs.json' 
+# نام فایل خروجی (مانند تصویر شما)
+OUTPUT_FILE = 'sub_config.json' 
 
 def decode_base64_safe(data):
     """دیکد کردن محتوای Base64"""
@@ -20,58 +20,45 @@ def decode_base64_safe(data):
     except:
         return data
 
-def map_vless_to_xray(url):
-    """تبدیل لینک VLESS به ساختار Outbound هسته Xray"""
+def parse_vmess(vmess_url):
+    """تبدیل لینک vmess به دیکشنری و دیکد کردن نام (ps)"""
     try:
-        parsed = urlparse(unquote(url))
+        b64_part = vmess_url.replace("vmess://", "")
+        json_str = decode_base64_safe(b64_part)
+        data = json.loads(json_str)
+        if 'ps' in data:
+            data['ps'] = unquote(data['ps']) # اصلاح نام
+        return data
+    except Exception:
+        return None
+
+def parse_vless_trojan(url, protocol):
+    """استخراج اطلاعات از لینک vless/trojan به فرمت JSON (شبیه تصویر شما)"""
+    try:
+        # دیکد کردن پارامترهای URL برای خواندن صحیح نام و مقادیر
+        parsed = urlparse(url)
         params = parse_qs(parsed.query)
         
-        # اصلاح نام (tag)
-        tag_name = unquote(parsed.fragment) if parsed.fragment else f"VLESS-{parsed.hostname}"
-        
-        # --- تنظیمات Stream (شبکه و امنیت) ---
-        network_type = params.get('type', ['tcp'])[0]
-        security_type = params.get('security', [''])[0]
-        
-        stream_settings = {"network": network_type}
-        
-        # تنظیمات TLS
-        if security_type in ('tls', 'xtls', 'reality'):
-            stream_settings["security"] = "tls"
-            stream_settings["tlsSettings"] = {
-                "serverName": params.get('sni', [parsed.hostname])[0],
-                "allowInsecure": params.get('allowInsecure', ['0'])[0] == '1'
-            }
+        # اصلاح نام (tag) - این قسمت همان است که درصدها را به حروف تبدیل می‌کند
+        tag_name = unquote(parsed.fragment) if parsed.fragment else f"{protocol.upper()}-{parsed.hostname}"
 
-        # تنظیمات WebSocket
-        if network_type == 'ws':
-            stream_settings["wsSettings"] = {
-                "path": params.get('path', ['/'])[0],
-                "headers": {"Host": params.get('host', [parsed.hostname])[0]}
-            }
-        
-        # --- ساخت Outbound نهایی ---
-        outbound = {
-            "tag": tag_name,
-            "protocol": "vless",
-            "settings": {
-                "vnext": [{
-                    "address": parsed.hostname,
-                    "port": parsed.port,
-                    "users": [{
-                        "id": parsed.username,
-                        "flow": params.get('flow', [''])[0],
-                        "encryption": "none"
-                    }]
-                }]
-            },
-            "streamSettings": stream_settings,
-            "mux": {"enabled": False} 
+        # ساخت آبجکت JSON
+        proxy_object = {
+            "protocol": protocol,
+            "uuid": parsed.username if parsed.username else "",
+            "address": parsed.hostname,
+            "port": parsed.port,
+            "name": tag_name, # نام اصلاح شده
+            "params": {}
         }
         
-        return outbound
-    except Exception as e:
-        print(f"Error mapping VLESS to Xray: {e}")
+        # افزودن پارامترها
+        for key, value in params.items():
+            # اطمینان از دیکد بودن مقادیر
+            proxy_object['params'][key] = unquote(value[0])
+            
+        return proxy_object
+    except Exception:
         return None
 
 def main():
@@ -84,46 +71,26 @@ def main():
         decoded_content = decode_base64_safe(content)
         
         links = decoded_content.splitlines()
-        outbounds = []
+        json_output = []
         
         for link in links:
             link = link.strip()
             if not link: continue
             
-            # تبدیل پروتکل‌ها
-            if link.startswith("vless://"):
-                data = map_vless_to_xray(link)
-                if data: outbounds.append(data)
-            # شما باید توابع map_vmess_to_xray و map_trojan_to_xray را نیز اضافه کنید
+            if link.startswith("vmess://"):
+                data = parse_vmess(link)
+                if data: json_output.append(data)
+            elif link.startswith(("vless://", "trojan://")):
+                protocol = link.split(':')[0].replace("://", "")
+                data = parse_vless_trojan(link, protocol)
+                if data: json_output.append(data)
             
-        # --- ساختار کامل Xray JSON (Full Config) ---
-        final_config = {
-            "log": {"loglevel": "warning"},
-            "dns": {
-                "servers": [{"address": "8.8.8.8", "tag": "dns-remote"}]
-            },
-            "inbounds": [
-                {"protocol": "socks", "listen": "127.0.0.1", "port": 10808, "tag": "socks-in"},
-                {"protocol": "http", "listen": "127.0.0.1", "port": 10809, "tag": "http-in"}
-            ],
-            "outbounds": outbounds + [
-                {"protocol": "freedom", "tag": "direct"},
-                {"protocol": "blackhole", "tag": "block"}
-            ],
-            "routing": {
-                "rules": [
-                    {"type": "field", "outboundTag": "block", "domain": ["geosite:category-ads-all"]},
-                    {"type": "field", "outboundTag": "direct", "network": "tcp,udp"}
-                ],
-                "domainStrategy": "AsIs"
-            }
-        }
-        
-        # ذخیره خروجی در فایل JSON
+        # --- ذخیره خروجی به صورت آرایه JSON مجزا ---
         with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-            json.dump(final_config, f, indent=4, ensure_ascii=False)
+            # خروجی نهایی یک آرایه [ {...}, {...}, ... ] است
+            json.dump(json_output, f, indent=4, ensure_ascii=False)
             
-        print(f"Successfully created full Xray JSON file: {len(outbounds)} proxies.")
+        print(f"Successfully created JSON array file: {len(json_output)} distinct configs.")
 
     except Exception as e:
         print(f"Error: {e}")

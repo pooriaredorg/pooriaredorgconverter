@@ -1,4 +1,4 @@
-name: Hourly Xray JSON Config Update
+name: Hourly JSON Array Update
 
 on:
   schedule:
@@ -14,22 +14,15 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
-      - name: Install Requirements
-        run: pip install requests
-
+      
+      # ... (تنظیم پایتون و نصب)
+      
       - name: Run Converter Script
         run: python converter.py
 
       - name: Commit and Push
         run: |
-          git config --global user.name 'Xray JSON Bot'
+          git config --global user.name 'JSON Array Bot'
           git config --global user.email 'action@github.com'
-          # کامیت فایل خروجی با نام مورد نظر شما
-          git add singbox_configs.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update Xray Config $(date)" && git push)
+          git add sub_config.json # کامیت فایل JSON
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update JSON array $(date)" && git push)

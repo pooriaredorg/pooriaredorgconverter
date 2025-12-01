@@ -1,1 +1,245 @@
-dmxlc3M6Ly8xMzA5OWZlOC03ZjlhLTRhNDgtODU4ZS1jZWJjNmI1YjgxZmFAOWFjZGo0dWsudHJlZS10b3AuY2M6NDQzP2Zsb3c9eHRscy1ycHJ4LXZpc2lvbiZ0eXBlPXRjcCZoZWFkZXJUeXBlPW5vbmUmc2VjdXJpdHk9cmVhbGl0eSZmcD1jaHJvbWUmc25pPXd3dy5hcHBsZS5jb20mcGJrPWZQU1I1R1pweGhPVjZSaDdWek10UzRBZVJON2lweU5YNHdhRzlKekp6eFEmc2lkPTIxMTgxMDI4YjU2Yzg3MDIj8J+Hs/Cfh7FBbXN0ZXJkYW0tcG9vcmlhCnZsZXNzOi8vMTMwOTlmZTgtN2Y5YS00YTQ4LTg1OGUtY2ViYzZiNWI4MWZhQGQubmwuY2RuLm1hdmlrcy5ldTo0NDM/Zmxvdz0mdHlwZT1odHRwdXBncmFkZSZob3N0PWNkbi5tYXZpa3MuZXUmcGF0aD0vTWFHTE0yNXRTaWtQVEZyNzVRMFlyaT9lZD0yNTYwJnNlY3VyaXR5PXRscyZzbmk9Y2RuLm1hdmlrcy5ldSZmcD1jaHJvbWUmYWxsb3dJbnNlY3VyZT0wI/Cfh7Pwn4exQW1zdGVyZGFtIOKAkyBSZXNlcnZlLXBvb3JpYTEKdmxlc3M6Ly8xMzA5OWZlOC03ZjlhLTRhNDgtODU4ZS1jZWJjNmI1YjgxZmFAbm9kZXMubWF2aWtzLmV1OjQ0Mz9mbG93PXh0bHMtcnByeC12aXNpb24mdHlwZT10Y3AmaGVhZGVyVHlwZT1ub25lJnNlY3VyaXR5PXJlYWxpdHkmZnA9Y2hyb21lJnNuaT13d3cubWljcm9zb2Z0LmNvbSZwYms9bHlMaGRvanBBQ3Y2QjN0SFZpSnZQak5HQVRlZFhZUk1ucEF0NG40U2l5byZzaWQ9ZjIwMzcxOWQzZmY5YTVmNSPwn4ep8J+Hqkdlcm1hbnktcG9vcmlhMQp2bGVzczovLzEzMDk5ZmU4LTdmOWEtNGE0OC04NThlLWNlYmM2YjViODFmYUBydS5tYXZpa3MuZXU6NDQzP2Zsb3c9eHRscy1ycHJ4LXZpc2lvbiZ0eXBlPXRjcCZoZWFkZXJUeXBlPW5vbmUmc2VjdXJpdHk9cmVhbGl0eSZmcD1jaHJvbWUmc25pPW1hdmlrcy5ldSZwYms9Y0d6TlJiTl96cnVJM0NWVER1a0Iybk9xV1dFajdrZ2theTI0ZjJmZExtUSZzaWQ9MGY5MTcxNTJhODcxZTljMCPwn4e38J+HulJ1c3NpYS1wb29yaWEKdmxlc3M6Ly8xMzA5OWZlOC03ZjlhLTRhNDgtODU4ZS1jZWJjNmI1YjgxZmFAcnUubWF2aWtzLmV1OjQ0Mz9mbG93PXh0bHMtcnByeC12aXNpb24mdHlwZT10Y3AmaGVhZGVyVHlwZT1ub25lJnNlY3VyaXR5PXJlYWxpdHkmZnA9Y2hyb21lJnNuaT1tYXZpa3MucnUmcGJrPWNHek5SYk5fenJ1STNDVlREdWtCMm5PcVdXRWo3a2drYXkyNGYyZmRMbVEmc2lkPTBmOTE3MTUyYTg3MWU5YzAj8J+Ht/Cfh7pSdXNzaWEtcG9vcmlhMQp2bGVzczovLzUzZmE4ZmFmLWJhNGItNDMyMi05YzY5LWEzZTViMTU1NTA0OUB3d3cuc3BlZWR0ZXN0Lm5ldDo0NDM/Zmxvdz0mdHlwZT13cyZob3N0PXBvb3JpYXJlZC5wb29yaWFyZWQxLndvcmtlcnMuZGV2JnBhdGg9L2V5SnFkVzVySWpvaVNFSldORUpUZVZOUFQxQTFXRGdpTENKd2NtOTBiMk52YkNJNkluWnNJaXdpYlc5a1pTSTZJbkJ5YjNoNWFYQWlMQ0p3WVc1bGJFbFFjeUk2VzExOT9lZD0yNTYwJnNlY3VyaXR5PXRscyZzbmk9cG9vcmlhcmVkLnBvb3JpYXJlZDEud29ya2Vycy5kZXYmYWxwbj1odHRwLzEuMSxoMiZmcD1jaHJvbWUmYWxsb3dJbnNlY3VyZT0xI9iv24zar9mHINii2K7Ysdin2LTZhyDwn6eR8J+Pu+KAjfCfkrvwn6W38J+Puwp2bGVzczovLzUzZmE4ZmFmLWJhNGItNDMyMi05YzY5LWEzZTViMTU1NTA0OUB3d3cuc3BlZWR0ZXN0Lm5ldDo0NDM/cGF0aD0vZXlKcWRXNXJJam9pU0VKV05FSlRlVk5QVDFBMVdEZ2lMQ0p3Y205MGIyTnZiQ0k2SW5ac0lpd2liVzlrWlNJNkluQnliM2g1YVhBaUxDSndZVzVsYkVsUWN5STZXMTE5P2VkPTI1NjAmc2VjdXJpdHk9dGxzJmVuY3J5cHRpb249bm9uZSZhbHBuPWgyLGh0dHAvMS4xJmhvc3Q9cE9PcklhbS5Qb09SaWE4LldPcktlUnMuZEVWJmZwPWNocm9tZSZhbGxvd2luc2VjdXJlPTEmdHlwZT13cyZzbmk9cE9PcklhbS5Qb09SaWE4LldPcktlUnMuZEVWI1BPT1JJQfCfpbfwn4+7dGVzdDQ0Mwp2bGVzczovLzUzZmE4ZmFmLWJhNGItNDMyMi05YzY5LWEzZTViMTU1NTA0OUB3d3cuc3BlZWR0ZXN0Lm5ldDo4MD9mbG93PSZ0eXBlPXdzJmhvc3Q9cG9vcmlhcmVkLnBvb3JpYXJlZDEud29ya2Vycy5kZXYmcGF0aD0vZXlKcWRXNXJJam9pU0VKV05FSlRlVk5QVDFBMVdEZ2lMQ0p3Y205MGIyTnZiQ0k2SW5ac0lpd2liVzlrWlNJNkluQnliM2g1YVhBaUxDSndZVzVsYkVsUWN5STZXMTE5P2VkPTI1NjAmc2VjdXJpdHk9bm9uZSPYr9uM2q/ZhyDYotiu2LHYp9i02Ycg8J+nkfCfj7vigI3wn5K78J+lt/Cfj7sKdmxlc3M6Ly81M2ZhOGZhZi1iYTRiLTQzMjItOWM2OS1hM2U1YjE1NTUwNDlAd3d3LnNwZWVkdGVzdC5uZXQ6ODA/cGF0aD0vZXlKcWRXNXJJam9pU0VKV05FSlRlVk5QVDFBMVdEZ2lMQ0p3Y205MGIyTnZiQ0k2SW5ac0lpd2liVzlrWlNJNkluQnliM2g1YVhBaUxDSndZVzVsYkVsUWN5STZXMTE5P2VkPTI1NjAmc2VjdXJpdHk9bm9uZSZlbmNyeXB0aW9uPW5vbmUmYWxwbj1oMixodHRwLzEuMSZob3N0PXBPT3JJYW0uUG9PUmlhOC5XT3JLZVJzLmRFViZmcD1jaHJvbWUmYWxsb3dpbnNlY3VyZT0xJnR5cGU9d3Mmc25pPXBPT3JJYW0uUG9PUmlhOC5XT3JLZVJzLmRFViNQT09SSUHwn6W38J+Pu3Rlc3Q4MAp2bGVzczovLzUzZmE4ZmFmLWJhNGItNDMyMi05YzY5LWEzZTViMTU1NTA0OUB3d3cuc3BlZWR0ZXN0Lm5ldDo4MD90eXBlPXdzJmhvc3Q9cG9vcmlhMzAwLnNhamFqMjY5NjAud29ya2Vycy5kZXYmcGF0aD0vcFlsdnJPaDFXeXZxekt0Zz9lZD0yNTYwJnNlY3VyaXR5PW5vbmUj8J+UpTgw8J+TjFBPT1JJQTEKdmxlc3M6Ly9iNDM4MTU4ZS0wNjBiLTRmNjQtOGY3Yi0zNzI5ZGI5YzVlYzhAd3d3LnNwZWVkdGVzdC5uZXQ6NDQzP3R5cGU9d3MmaG9zdD1wb29yaWFyZWRvcmcucG9vcmlhcmVkLmlyJnBhdGg9L2V5SnFkVzVySWpvaVJEZG5aVmwxTnpWSlVrMVBJaXdpY0hKdmRHOWpiMndpT2lKMmJDSXNJbTF2WkdVaU9pSndjbTk0ZVdsd0lpd2ljR0Z1Wld4SlVITWlPbHRkZlE9PT9lZD0yNTYwJnNlY3VyaXR5PXRscyZzbmk9UG9vUklhUkVkb1JnLlBPb1JJQVJlRC5JciZhbHBuPWh0dHAvMS4xJmZwPWNocm9tZSZhbGxvd0luc2VjdXJlPTAjUE9PUklBMwp2bGVzczovL2I0MzgxNThlLTA2MGItNGY2NC04ZjdiLTM3MjlkYjljNWVjOEB3d3cuc3BlZWR0ZXN0Lm5ldDo4MD90eXBlPXdzJmhvc3Q9cG9vcmlhcmVkb3JnLnBvb3JpYXJlZC5pciZwYXRoPS9leUpxZFc1cklqb2ljV04yTkdwalNrbFZTVmRCTlNJc0luQnliM1J2WTI5c0lqb2lkbXdpTENKdGIyUmxJam9pY0hKdmVIbHBjQ0lzSW5CaGJtVnNTVkJ6SWpwYlhYMD0/ZWQ9MjU2MCZzZWN1cml0eT1ub25lI1BPT1JJQTEKdmxlc3M6Ly9iZWI0ZGI2NS1mNTk1LTQ2YjYtOGViOS1lMGEyMDU0NzI3NzdAd3d3LnNwZWVkdGVzdC5uZXQ6NDQzP3BhdGg9L2V5SnFkVzVySWpvaWNUSlRWRFZ4U1hCemREZENWV0lpTENKd2NtOTBiMk52YkNJNkluWnNJaXdpYlc5a1pTSTZJbkJ5YjNoNWFYQWlMQ0p3WVc1bGJFbFFjeUk2VzExOT9lZD0yNTYwJnNlY3VyaXR5PXRscyZlbmNyeXB0aW9uPW5vbmUmaG9zdD1wb29yaWEucG9vcmlhcmVkLWRiNC53b3JrZXJzLmRldiZmcD1jaHJvbWUmYWxsb3dpbnNlY3VyZT0wJnR5cGU9d3Mmc25pPXBvb3JpYS5wb29yaWFyZWQtZGI0LndvcmtlcnMuZGV2I1BPT1JJQSvino3wn6W38J+Puwp2bGVzczovL2JlYjRkYjY1LWY1OTUtNDZiNi04ZWI5LWUwYTIwNTQ3Mjc3N0B3d3cuc3BlZWR0ZXN0Lm5ldDo4MD9wYXRoPS9leUpxZFc1cklqb2ljVEpUVkRWeFNYQnpkRGRDVldJaUxDSndjbTkwYjJOdmJDSTZJblpzSWl3aWJXOWtaU0k2SW5CeWIzaDVhWEFpTENKd1lXNWxiRWxRY3lJNlcxMTk/ZWQ9MjU2MCZzZWN1cml0eT1ub25lJmVuY3J5cHRpb249bm9uZSZob3N0PXBvb3JpYS5wb29yaWFyZWQtZGI0LndvcmtlcnMuZGV2JmZwPWNocm9tZSZhbGxvd2luc2VjdXJlPTAmdHlwZT13cyZzbmk9cG9vcmlhLnBvb3JpYXJlZC1kYjQud29ya2Vycy5kZXYjUE9PUklB4p6MK/Cfpbfwn4+7CnRyb2phbjovL3Bvb3JpYUBwb29yaWFyZWRvcmcucG9vcmlhcmVkLmlyOjQ0Mz90eXBlPXdzJmhvc3Q9cG9vcmlhcmVkb3JnLnBvb3JpYXJlZC5pciZwYXRoPS9leUpxZFc1cklqb2lUMGRoYTJsbmNFdDBXRTFGSWl3aWNISnZkRzlqYjJ3aU9pSjBjaUlzSW0xdlpHVWlPaUp3Y205NGVXbHdJaXdpY0dGdVpXeEpVSE1pT2x0ZGZRPT0/ZWQ9MjU2MCZzZWN1cml0eT10bHMmc25pPXBPb1JJQXJFRE9yRy5wT29ySUFyZWQuaXImZnA9Y2hyb21lJmFsbG93SW5zZWN1cmU9MCNQT09SSUEyPT09
+[
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "9acdj4uk.tree-top.cc",
+        "port": 443,
+        "name": "🇳🇱Amsterdam-pooria",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "www.apple.com",
+            "pbk": "fPSR5GZpxhOV6Rh7VzMtS4AeRN7ipyNX4waG9JzJzxQ",
+            "sid": "21181028b56c8702"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "d.nl.cdn.maviks.eu",
+        "port": 443,
+        "name": "🇳🇱Amsterdam – Reserve-pooria1",
+        "params": {
+            "type": "httpupgrade",
+            "host": "cdn.maviks.eu",
+            "path": "/MaGLM25tSikPTFr75Q0Yri?ed=2560",
+            "security": "tls",
+            "sni": "cdn.maviks.eu",
+            "fp": "chrome",
+            "allowInsecure": "0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "nodes.maviks.eu",
+        "port": 443,
+        "name": "🇩🇪Germany-pooria1",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "www.microsoft.com",
+            "pbk": "lyLhdojpACv6B3tHViJvPjNGATedXYRMnpAt4n4Siyo",
+            "sid": "f203719d3ff9a5f5"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "ru.maviks.eu",
+        "port": 443,
+        "name": "🇷🇺Russia-pooria",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "maviks.eu",
+            "pbk": "cGzNRbN_zruI3CVTDukB2nOqWWEj7kgkay24f2fdLmQ",
+            "sid": "0f917152a871e9c0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
+        "address": "ru.maviks.eu",
+        "port": 443,
+        "name": "🇷🇺Russia-pooria1",
+        "params": {
+            "flow": "xtls-rprx-vision",
+            "type": "tcp",
+            "headerType": "none",
+            "security": "reality",
+            "fp": "chrome",
+            "sni": "maviks.ru",
+            "pbk": "cGzNRbN_zruI3CVTDukB2nOqWWEj7kgkay24f2fdLmQ",
+            "sid": "0f917152a871e9c0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "دیگه آخراشه 🧑🏻‍💻🥷🏻",
+        "params": {
+            "type": "ws",
+            "host": "pooriared.pooriared1.workers.dev",
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "tls",
+            "sni": "pooriared.pooriared1.workers.dev",
+            "alpn": "http/1.1,h2",
+            "fp": "chrome",
+            "allowInsecure": "1"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "POORIA🥷🏻test443",
+        "params": {
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "tls",
+            "encryption": "none",
+            "alpn": "h2,http/1.1",
+            "host": "pOOrIam.PoORia8.WOrKeRs.dEV",
+            "fp": "chrome",
+            "allowinsecure": "1",
+            "type": "ws",
+            "sni": "pOOrIam.PoORia8.WOrKeRs.dEV"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "دیگه آخراشه 🧑🏻‍💻🥷🏻",
+        "params": {
+            "type": "ws",
+            "host": "pooriared.pooriared1.workers.dev",
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "none"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "POORIA🥷🏻test80",
+        "params": {
+            "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "none",
+            "encryption": "none",
+            "alpn": "h2,http/1.1",
+            "host": "pOOrIam.PoORia8.WOrKeRs.dEV",
+            "fp": "chrome",
+            "allowinsecure": "1",
+            "type": "ws",
+            "sni": "pOOrIam.PoORia8.WOrKeRs.dEV"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "🔥80📌POORIA1",
+        "params": {
+            "type": "ws",
+            "host": "pooria300.sajaj26960.workers.dev",
+            "path": "/pYlvrOh1WyvqzKtg?ed=2560",
+            "security": "none"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "b438158e-060b-4f64-8f7b-3729db9c5ec8",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "POORIA3",
+        "params": {
+            "type": "ws",
+            "host": "pooriaredorg.pooriared.ir",
+            "path": "/eyJqdW5rIjoiRDdnZVl1NzVJUk1PIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560",
+            "security": "tls",
+            "sni": "PooRIaREdoRg.POoRIAReD.Ir",
+            "alpn": "http/1.1",
+            "fp": "chrome",
+            "allowInsecure": "0"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "b438158e-060b-4f64-8f7b-3729db9c5ec8",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "POORIA1",
+        "params": {
+            "type": "ws",
+            "host": "pooriaredorg.pooriared.ir",
+            "path": "/eyJqdW5rIjoicWN2NGpjSklVSVdBNSIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560",
+            "security": "none"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "beb4db65-f595-46b6-8eb9-e0a205472777",
+        "address": "www.speedtest.net",
+        "port": 443,
+        "name": "POORIA+➍🥷🏻",
+        "params": {
+            "path": "/eyJqdW5rIjoicTJTVDVxSXBzdDdCVWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "tls",
+            "encryption": "none",
+            "host": "pooria.pooriared-db4.workers.dev",
+            "fp": "chrome",
+            "allowinsecure": "0",
+            "type": "ws",
+            "sni": "pooria.pooriared-db4.workers.dev"
+        }
+    },
+    {
+        "protocol": "vless",
+        "uuid": "beb4db65-f595-46b6-8eb9-e0a205472777",
+        "address": "www.speedtest.net",
+        "port": 80,
+        "name": "POORIA➌+🥷🏻",
+        "params": {
+            "path": "/eyJqdW5rIjoicTJTVDVxSXBzdDdCVWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+            "security": "none",
+            "encryption": "none",
+            "host": "pooria.pooriared-db4.workers.dev",
+            "fp": "chrome",
+            "allowinsecure": "0",
+            "type": "ws",
+            "sni": "pooria.pooriared-db4.workers.dev"
+        }
+    },
+    {
+        "protocol": "trojan",
+        "uuid": "pooria",
+        "address": "pooriaredorg.pooriared.ir",
+        "port": 443,
+        "name": "POORIA2===",
+        "params": {
+            "type": "ws",
+            "host": "pooriaredorg.pooriared.ir",
+            "path": "/eyJqdW5rIjoiT0dha2lncEt0WE1FIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560",
+            "security": "tls",
+            "sni": "pOoRIArEDOrG.pOorIAred.ir",
+            "fp": "chrome",
+            "allowInsecure": "0"
+        }
+    }
+]

@@ -4,7 +4,7 @@
         "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
         "address": "9acdj4uk.tree-top.cc",
         "port": 443,
-        "name": "%F0%9F%87%B3%F0%9F%87%B1Amsterdam-pooria",
+        "name": "🇳🇱Amsterdam-pooria",
         "params": {
             "flow": "xtls-rprx-vision",
             "type": "tcp",
@@ -21,7 +21,7 @@
         "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
         "address": "d.nl.cdn.maviks.eu",
         "port": 443,
-        "name": "%F0%9F%87%B3%F0%9F%87%B1Amsterdam%20%E2%80%93%20Reserve-pooria1",
+        "name": "🇳🇱Amsterdam – Reserve-pooria1",
         "params": {
             "type": "httpupgrade",
             "host": "cdn.maviks.eu",
@@ -37,7 +37,7 @@
         "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
         "address": "nodes.maviks.eu",
         "port": 443,
-        "name": "%F0%9F%87%A9%F0%9F%87%AAGermany-pooria1",
+        "name": "🇩🇪Germany-pooria1",
         "params": {
             "flow": "xtls-rprx-vision",
             "type": "tcp",
@@ -54,7 +54,7 @@
         "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
         "address": "ru.maviks.eu",
         "port": 443,
-        "name": "%F0%9F%87%B7%F0%9F%87%BARussia-pooria",
+        "name": "🇷🇺Russia-pooria",
         "params": {
             "flow": "xtls-rprx-vision",
             "type": "tcp",
@@ -71,7 +71,7 @@
         "uuid": "13099fe8-7f9a-4a48-858e-cebc6b5b81fa",
         "address": "ru.maviks.eu",
         "port": 443,
-        "name": "%F0%9F%87%B7%F0%9F%87%BARussia-pooria1",
+        "name": "🇷🇺Russia-pooria1",
         "params": {
             "flow": "xtls-rprx-vision",
             "type": "tcp",
@@ -88,7 +88,7 @@
         "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
         "address": "www.speedtest.net",
         "port": 443,
-        "name": "%D8%AF%DB%8C%DA%AF%D9%87%20%D8%A2%D8%AE%D8%B1%D8%A7%D8%B4%D9%87%20%F0%9F%A7%91%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB%F0%9F%A5%B7%F0%9F%8F%BB",
+        "name": "دیگه آخراشه 🧑🏻‍💻🥷🏻",
         "params": {
             "type": "ws",
             "host": "pooriared.pooriared1.workers.dev",
@@ -105,7 +105,7 @@
         "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
         "address": "www.speedtest.net",
         "port": 443,
-        "name": "POORIA%F0%9F%A5%B7%F0%9F%8F%BBtest443",
+        "name": "POORIA🥷🏻test443",
         "params": {
             "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
             "security": "tls",
@@ -123,7 +123,7 @@
         "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
         "address": "www.speedtest.net",
         "port": 80,
-        "name": "%D8%AF%DB%8C%DA%AF%D9%87%20%D8%A2%D8%AE%D8%B1%D8%A7%D8%B4%D9%87%20%F0%9F%A7%91%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB%F0%9F%A5%B7%F0%9F%8F%BB",
+        "name": "دیگه آخراشه 🧑🏻‍💻🥷🏻",
         "params": {
             "type": "ws",
             "host": "pooriared.pooriared1.workers.dev",
@@ -136,7 +136,7 @@
         "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
         "address": "www.speedtest.net",
         "port": 80,
-        "name": "POORIA%F0%9F%A5%B7%F0%9F%8F%BBtest80",
+        "name": "POORIA🥷🏻test80",
         "params": {
             "path": "/eyJqdW5rIjoiSEJWNEJTeVNPT1A1WDgiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
             "security": "none",
@@ -154,7 +154,7 @@
         "uuid": "53fa8faf-ba4b-4322-9c69-a3e5b1555049",
         "address": "www.speedtest.net",
         "port": 80,
-        "name": "%F0%9F%94%A580%F0%9F%93%8CPOORIA1",
+        "name": "🔥80📌POORIA1",
         "params": {
             "type": "ws",
             "host": "pooria300.sajaj26960.workers.dev",
@@ -197,7 +197,7 @@
         "uuid": "beb4db65-f595-46b6-8eb9-e0a205472777",
         "address": "www.speedtest.net",
         "port": 443,
-        "name": "POORIA+%E2%9E%8D%F0%9F%A5%B7%F0%9F%8F%BB",
+        "name": "POORIA+➍🥷🏻",
         "params": {
             "path": "/eyJqdW5rIjoicTJTVDVxSXBzdDdCVWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
             "security": "tls",
@@ -214,7 +214,7 @@
         "uuid": "beb4db65-f595-46b6-8eb9-e0a205472777",
         "address": "www.speedtest.net",
         "port": 80,
-        "name": "POORIA%E2%9E%8C+%F0%9F%A5%B7%F0%9F%8F%BB",
+        "name": "POORIA➌+🥷🏻",
         "params": {
             "path": "/eyJqdW5rIjoicTJTVDVxSXBzdDdCVWIiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
             "security": "none",

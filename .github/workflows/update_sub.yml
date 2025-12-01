@@ -1,8 +1,8 @@
-name: Hourly Sub Update
+name: Hourly Sub JSON Update
 
 on:
   schedule:
-    - cron: '0 * * * *' # اجرا هر ساعت (دقیقه صفر)
+    - cron: '0 * * * *' # اجرا در دقیقه 0 هر ساعت (هر 1 ساعت یکبار)
   workflow_dispatch:
 
 jobs:
@@ -23,14 +23,14 @@ jobs:
       - name: Install Requirements
         run: pip install requests
 
-      - name: Run Converter Script
+      - name: Run JSON Converter Script
         run: python converter.py
 
       - name: Commit and Push
         run: |
-          git config --global user.name 'Auto Bot'
-          git config --global user.email 'bot@noreply.github.com'
-          # اضافه کردن فایل متنی جدید
-          git add sub_config.txt
+          git config --global user.name 'Auto JSON Updater'
+          git config --global user.email 'action@github.com'
+          # اضافه کردن فایل JSON
+          git add sub_config.json
           # بررسی تغییرات و کامیت
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update sub $(date)" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update JSON sub $(date)" && git push)

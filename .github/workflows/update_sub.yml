@@ -1,0 +1,36 @@
+name: Hourly Sub Update
+
+on:
+  schedule:
+    # اجرا در دقیقه 0 هر ساعت (هر 1 ساعت یکبار)
+    - cron: '0 * * * *'
+  workflow_dispatch: # دکمه اجرای دستی
+
+jobs:
+  convert_and_push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Requirements
+        run: pip install requests
+
+      - name: Run Converter Script
+        run: python converter.py
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'Auto Bot'
+          git config --global user.email 'bot@noreply.github.com'
+          git add sub_config.json
+          # فقط اگر تغییری بود کامیت کن
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update: $(date)" && git push)
